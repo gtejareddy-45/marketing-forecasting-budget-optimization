@@ -1,17 +1,16 @@
 // Marketing Forecasting & Budget Optimization — DAX starter measures
-// Main fact table: Raw Marketing Data. Column names match data/raw_marketing_data.csv.
+// Import the CSVs and rename their tables exactly as noted in BUILD_GUIDE.md.
+// Keep the summary tables disconnected unless you intentionally design a model.
 
-Total Spend = SUM('Raw Marketing Data'[marketing_spend])
-Total Impressions = SUM('Raw Marketing Data'[impressions])
-Total Clicks = SUM('Raw Marketing Data'[clicks])
-Total Leads = SUM('Raw Marketing Data'[leads])
-Total Appointments = SUM('Raw Marketing Data'[appointments_booked])
-Completed Visits = SUM('Raw Marketing Data'[completed_visits])
-Attributed Revenue = SUM('Raw Marketing Data'[attributed_revenue])
-Estimated Variable Cost = SUM('Raw Marketing Data'[estimated_variable_cost])
-Contribution After Media = [Attributed Revenue] - [Estimated Variable Cost] - [Total Spend]
-Click Through Rate = DIVIDE([Total Clicks], [Total Impressions])
-Cost Per Click = DIVIDE([Total Spend], [Total Clicks])
+// Executive KPIs — Monthly Totals table
+Total Spend = SUM('Monthly Totals'[marketing_spend])
+Total Leads = SUM('Monthly Totals'[leads])
+Total Appointments = SUM('Monthly Totals'[appointments])
+Completed Visits = SUM('Monthly Totals'[completed_visits])
+Attributed Revenue = SUM('Monthly Totals'[attributed_revenue])
+Variable Cost = SUM('Monthly Totals'[variable_cost])
+Contribution After Media = [Attributed Revenue] - [Variable Cost] - [Total Spend]
+Click Through Rate = BLANK() // Impressions/clicks are not present in Monthly Totals summary.
 Cost Per Lead = DIVIDE([Total Spend], [Total Leads])
 Lead To Appointment Rate = DIVIDE([Total Appointments], [Total Leads])
 Visit Show Rate = DIVIDE([Completed Visits], [Total Appointments])
@@ -19,3 +18,34 @@ Cost Per Appointment = DIVIDE([Total Spend], [Total Appointments])
 Cost Per Completed Visit = DIVIDE([Total Spend], [Completed Visits])
 Return On Ad Spend = DIVIDE([Attributed Revenue], [Total Spend])
 Contribution Margin % = DIVIDE([Contribution After Media], [Attributed Revenue])
+
+// Channel Performance page — use Channel on the visual axis.
+Channel Spend = SUM('Channel Performance'[total_spend])
+Channel Leads = SUM('Channel Performance'[leads])
+Channel Appointments = SUM('Channel Performance'[appointments])
+Channel Completed Visits = SUM('Channel Performance'[completed_visits])
+Channel Revenue = SUM('Channel Performance'[attributed_revenue])
+Channel Variable Cost = SUM('Channel Performance'[variable_cost])
+Channel Contribution = [Channel Revenue] - [Channel Variable Cost] - [Channel Spend]
+Channel ROAS = DIVIDE([Channel Revenue], [Channel Spend])
+Channel CPL = DIVIDE([Channel Spend], [Channel Leads])
+Channel Cost Per Appointment = DIVIDE([Channel Spend], [Channel Appointments])
+
+// Office Performance page — use Office ID or Market on the visual axis.
+Office Spend = SUM('Office Performance'[marketing_spend])
+Office Leads = SUM('Office Performance'[leads])
+Office Appointments = SUM('Office Performance'[appointments])
+Office Completed Visits = SUM('Office Performance'[completed_visits])
+Office Revenue = SUM('Office Performance'[attributed_revenue])
+Office Variable Cost = SUM('Office Performance'[estimated_variable_cost])
+Office Contribution = [Office Revenue] - [Office Variable Cost] - [Office Spend]
+Office ROAS = DIVIDE([Office Revenue], [Office Spend])
+Office CPL = DIVIDE([Office Spend], [Office Leads])
+
+// Budget Scenarios page — each scenario is a modeled estimate, not a guarantee.
+Scenario Spend = SUM('Budget Scenarios'[total_spend])
+Scenario Predicted Leads = SUM('Budget Scenarios'[predicted_leads])
+Scenario Predicted Appointments = SUM('Budget Scenarios'[predicted_appointments])
+Scenario Predicted Visits = SUM('Budget Scenarios'[predicted_visits])
+Scenario Predicted Revenue = SUM('Budget Scenarios'[predicted_revenue])
+Scenario Predicted Contribution = SUM('Budget Scenarios'[predicted_contribution])
