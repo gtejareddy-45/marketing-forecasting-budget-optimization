@@ -1,26 +1,38 @@
 # Marketing Forecasting & Budget Optimization
 
-A portfolio project demonstrating marketing performance analytics, forecast evaluation, and budget allocation scenario analysis using synthetic data.
+An end-to-end marketing analytics portfolio case study using synthetic dental-services marketing data. The project explores funnel performance, channel efficiency, forecast validation, and budget allocation scenarios.
 
-## Project status
-This repository is being assembled. It will contain a dashboard preview, CSV datasets, Excel analysis workbook, and a Power BI setup guide with DAX measures.
+## Interactive dashboard
+Open the [dashboard preview](./index.html). After enabling GitHub Pages, it can be viewed as a public website at:
 
-## Key analyses
-- Marketing funnel and channel performance
-- Spend, leads, appointments, completed visits, revenue, and ROAS
-- Forecast evaluation using holdout data
-- Budget allocation scenarios
-- Descriptive treatment/control practice comparison
+`https://gtejareddy-45.github.io/marketing-forecasting-budget-optimization/`
 
-## Important caveats
-- All data are synthetic and intended for portfolio practice.
-- Forecasts and budget allocation outputs are scenario estimates, not causal findings or guaranteed outcomes.
-- The included HTML dashboard is a portfolio preview; a native `.pbix` report must be created and saved in Power BI Desktop.
+The charts use Chart.js from a CDN, so an internet connection is required for the chart visuals.
 
-## Planned project files
+## Key results in the synthetic dataset
+- Media spend: approximately **$9.85M** across January 2023–December 2025
+- Attributed revenue: approximately **$22.00M**
+- Blended ROAS: approximately **2.23×**
+- Leads: **133,251**; completed visits: **33,338**
+- Google Search had the strongest historical ROAS among the four included channels (**3.25×**).
+
+## Repository contents
 - `index.html` — interactive executive dashboard preview
-- `data/` — CSV data for Power BI
-- `powerbi/measures.dax` — core KPI measures
-- `powerbi/BUILD_GUIDE.md` — report assembly instructions
-- `powerbi/marketing_theme.json` — optional theme
-- `marketing_portfolio_workbook.xlsx` — analysis workbook
+- `data/monthly_totals.csv` — 36 monthly aggregate records
+- `data/channel_performance.csv` — channel-level KPI summary
+- `data/office_performance.csv` — office-level KPI summary
+- `data/budget_scenarios.csv` and `data/budget_allocation.csv` — modeled scenario results
+- `data/forecast_evaluation.csv` — holdout model error comparisons
+- `data/experiment_summary.csv`, `data/group_comparison.csv`, `data/market_experiment.csv` — descriptive incrementality-practice outputs
+- `powerbi/measures.dax` — DAX starter measures for the published summary tables
+- `powerbi/marketing_theme.json` — optional Power BI report theme
+- `powerbi/BUILD_GUIDE.md` — step-by-step report assembly guide
+
+## Power BI
+The repository provides CSVs, starter DAX, a theme, and report-building instructions. A native `.pbix` file has not been created here; assemble the report in Power BI Desktop using the steps in [the build guide](./powerbi/BUILD_GUIDE.md).
+
+## Important limitations
+- All data are **synthetic** and are for portfolio practice only; they are not actual company or patient data.
+- Forecast and budget outputs are modeled scenarios, not causal findings or guaranteed business outcomes.
+- Treatment and control markets were fixed by group, and a pre-period baseline is not included. The experiment comparison is descriptive and should not be presented as proof of causal lift.
+- Summary tables are pre-aggregated at different grains. **Do not relate all summary tables together blindly**, as doing so can double-count metrics.
