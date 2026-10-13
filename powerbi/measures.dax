@@ -1,11 +1,11 @@
 // Marketing Forecasting & Budget Optimization — DAX starter measures
-// Main fact table expected name: Raw Marketing Data
+// Main fact table: Raw Marketing Data. Column names match data/raw_marketing_data.csv.
 
-Total Spend = SUM('Raw Marketing Data'[spend])
+Total Spend = SUM('Raw Marketing Data'[marketing_spend])
 Total Impressions = SUM('Raw Marketing Data'[impressions])
 Total Clicks = SUM('Raw Marketing Data'[clicks])
 Total Leads = SUM('Raw Marketing Data'[leads])
-Total Appointments = SUM('Raw Marketing Data'[appointments])
+Total Appointments = SUM('Raw Marketing Data'[appointments_booked])
 Completed Visits = SUM('Raw Marketing Data'[completed_visits])
 Attributed Revenue = SUM('Raw Marketing Data'[attributed_revenue])
 Estimated Variable Cost = SUM('Raw Marketing Data'[estimated_variable_cost])
