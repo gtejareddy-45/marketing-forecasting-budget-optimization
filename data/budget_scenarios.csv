@@ -1,0 +1,4 @@
+scenario,total_spend,predicted_leads,predicted_appointments,predicted_visits,predicted_revenue,predicted_contribution
+Baseline,273505.45,3701.42,1279.28,926.06,611077.76,35347.12
+Conservative test,273505.45,3766.65,1306.09,945.18,626036.38,42909.61
+Optimized,273505.45,3831.88,1332.91,964.31,640995.0,50472.1
