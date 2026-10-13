@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marketing Forecasting & Budget Optimization</title>
+<style>
+:root{--navy:#11233f;--blue:#2563eb;--teal:#0f9e8a;--bg:#f4f7fb;--muted:#65758b;--line:#e4eaf2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.5 Inter,Segoe UI,Arial,sans-serif;color:#1d2a3a}
+header{background:linear-gradient(120deg,#10213d,#194c82);color:#fff;padding:36px max(22px,calc((100% - 1180px)/2))}
+header .eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:11px;color:#c7dcff;font-weight:700}h1{font-size:clamp(27px,4vw,42px);line-height:1.12;margin:12px 0}header p{max-width:780px;color:#dce8f8;margin:0}
+main{max-width:1180px;margin:24px auto;padding:0 18px 44px}.note{background:#fff9e8;border:1px solid #f4dda4;color:#77571c;border-radius:12px;padding:12px 15px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:0 4px 14px #1b33540a;min-width:0}.kpi label{display:block;color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.kpi strong{display:block;font-size:clamp(22px,2.7vw,32px);letter-spacing:-.04em;margin:7px 0 2px;color:var(--navy)}.kpi small{color:var(--muted)}
+.two{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:14px}.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}h2{font-size:17px;color:var(--navy);margin:0 0 12px}h3{font-size:14px;margin:0 0 6px;color:var(--navy)}.muted{color:var(--muted);font-size:13px}.chart{height:270px;position:relative}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}td:last-child,th:last-child{text-align:right}.pill{display:inline-block;border-radius:99px;padding:3px 9px;background:#e7f7f2;color:#087b68;font-size:11px;font-weight:700}.warn{background:#fff0dd;color:#965411}.list{padding-left:18px;margin:6px 0}.list li{margin:7px 0}.foot{margin-top:18px;color:var(--muted);font-size:12px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two,.three{grid-template-columns:1fr}}
+@media(max-width:480px){header{padding:28px 18px}.grid{grid-template-columns:1fr 1fr}.card{padding:13px}.kpi strong{font-size:22px}th,td{padding:8px 5px;font-size:11px}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head><body>
+<header><div class="eyebrow">Portfolio Case Study · Marketing Analytics</div><h1>Marketing Forecasting &amp;<br>Budget Optimization</h1><p>Turn marketing funnel data into channel-level performance insights, practical forecasts, and a testable budget allocation plan.</p></header>
+<main>
+<div class="note"><strong>Data note:</strong> This case study uses synthetic practice data. Scenario projections are illustrative and are not causal findings or guaranteed results.</div>
+<section class="grid">
+<div class="card kpi"><label>Media Spend</label><strong>$9.85M</strong><small>36 months · 2023–2025</small></div>
+<div class="card kpi"><label>Attributed Revenue</label><strong>$22.00M</strong><small>2.23× blended ROAS</small></div>
+<div class="card kpi"><label>Leads</label><strong>133,251</strong><small>3.53M clicks generated</small></div>
+<div class="card kpi"><label>Completed Visits</label><strong>33,338</strong><small>72.4% appointment show rate</small></div>
+</section>
+<section class="two">
+<div class="card"><h2>Monthly spend vs. attributed revenue</h2><p class="muted">A directional view of how media investment and attributed revenue move over time.</p><div class="chart"><canvas id="trend"></canvas></div></div>
+<div class="card"><h2>Return on ad spend by channel</h2><p class="muted">Google Search has the strongest historical ROAS in this synthetic dataset.</p><div class="chart"><canvas id="roas"></canvas></div></div>
+</section>
+<section class="two">
+<div class="card"><h2>Channel performance</h2><div style="overflow:auto"><table><thead><tr><th>Channel</th><th>Spend</th><th>Leads</th><th>ROAS</th></tr></thead><tbody>
+<tr><td>Google Search</td><td>$4.22M</td><td>76,042</td><td><span class="pill">3.25×</span></td></tr>
+<tr><td>Meta Ads</td><td>$2.90M</td><td>36,447</td><td>1.85×</td></tr>
+<tr><td>Paid Social Video</td><td>$1.62M</td><td>13,811</td><td>1.20×</td></tr>
+<tr><td>Local Display</td><td>$1.11M</td><td>6,951</td><td><span class="pill warn">0.88×</span></td></tr>
+</tbody></table></div><p class="muted">ROAS = attributed revenue ÷ media spend. It does not account for variable costs.</p></div>
+<div class="card"><h2>Forecast validation</h2><p class="muted">Holdout period: July–December 2025</p><div style="overflow:auto"><table><thead><tr><th>Target</th><th>Selected model</th><th>WAPE</th></tr></thead><tbody>
+<tr><td>Leads</td><td>Ridge (provisional)</td><td>6.60%</td></tr><tr><td>Appointments</td><td>Seasonal naive</td><td>5.48%</td></tr></tbody></table></div><p class="muted">Model choice weighs multiple errors; the leads Ridge model had a higher RMSE than the seasonal-naive baseline, so treat it as provisional.</p></div>
+</section>
+<section class="three">
+<div class="card"><h3>01 · Understand the funnel</h3><p class="muted">Track impressions → clicks → leads → appointments → completed visits, alongside cost efficiency.</p></div>
+<div class="card"><h3>02 · Evaluate channels</h3><p class="muted">Compare spend, CPL, appointment cost, show rate, ROAS, and estimated contribution—not ROAS alone.</p></div>
+<div class="card"><h3>03 · Test budget changes</h3><p class="muted">Scenario analysis shifts budget toward stronger modeled channels while keeping total monthly spend fixed.</p></div>
+</section>
+<section class="two">
+<div class="card"><h2>Budget scenario comparison</h2><div class="chart"><canvas id="scenario"></canvas></div><p class="muted">Projected monthly contribution after estimated variable cost and media spend. Model-based estimate, not a causal promise.</p></div>
+<div class="card"><h2>Key recommendations</h2><ul class="list"><li>Protect Google Search's strong performance while checking capacity and lead quality.</li><li>Run controlled, incremental budget tests before materially scaling or cutting any channel.</li><li>Investigate lower-return channels for targeting, conversion quality, and attribution issues.</li><li>Validate assumptions against actual CRM outcomes and reconciled finance data.</li></ul></div>
+</section>
+<div class="foot">Created as an analytics portfolio demonstration · Synthetic data only · Forecasts and optimization outputs are model estimates · Built with HTML, CSS, JavaScript and Chart.js.</div>
+</main>
+<script>
+if(window.Chart){
+const labels=['Jan 23','Apr 23','Jul 23','Oct 23','Jan 24','Apr 24','Jul 24','Oct 24','Jan 25','Apr 25','Jul 25','Oct 25'];
+new Chart(document.getElementById('trend'),{type:'line',data:{labels,datasets:[{label:'Spend ($000)',data:[250,265,260,282,275,288,270,295,280,289,267,310],borderColor:'#2563eb',backgroundColor:'#2563eb22',tension:.3,yAxisID:'y',fill:false},{label:'Revenue ($000)',data:[540,560,570,590,575,620,600,640,615,635,610,675],borderColor:'#0f9e8a',backgroundColor:'#0f9e8a22',tension:.3,yAxisID:'y',fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{ticks:{callback:v=>'$'+v+'k'}}}}});
+new Chart(document.getElementById('roas'),{type:'bar',data:{labels:['Google Search','Meta Ads','Paid Social Video','Local Display'],datasets:[{label:'ROAS',data:[3.25,1.85,1.20,.88],backgroundColor:['#2563eb','#6090db','#8ca9d5','#f0ae55'],borderRadius:5}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{callback:v=>v+'×'}}}}});
+new Chart(document.getElementById('scenario'),{type:'bar',data:{labels:['Baseline','Conservative test','Optimized'],datasets:[{label:'Monthly contribution',data:[35347,42910,50472],backgroundColor:['#94a3b8','#4e91e8','#0f9e8a'],borderRadius:5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>'$'+Math.round(v/1000)+'k'}}}}});
+}
+</script></body></html>
