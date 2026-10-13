@@ -1,0 +1,14 @@
+{
+  "name": "Marketing Portfolio - Clean Blue",
+  "dataColors": [
+    "#1F77B4",
+    "#FF7F0E",
+    "#2CA02C",
+    "#D62728",
+    "#9467BD",
+    "#17BECF"
+  ],
+  "background": "#F7F9FC",
+  "foreground": "#243247",
+  "tableAccent": "#1F77B4"
+}
