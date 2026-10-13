@@ -23,7 +23,7 @@ main{max-width:1180px;margin:24px auto;padding:0 18px 44px}.note{background:#fff
 <div class="card kpi"><label>Completed Visits</label><strong>33,338</strong><small>72.4% appointment show rate</small></div>
 </section>
 <section class="two">
-<div class="card"><h2>Monthly spend vs. attributed revenue</h2><p class="muted">A directional view of how media investment and attributed revenue move over time.</p><div class="chart"><canvas id="trend"></canvas></div></div>
+<div class="card"><h2>Monthly spend vs. attributed revenue</h2><p class="muted">Monthly totals from the synthetic dataset, January 2023–December 2025. Amounts are shown in thousands.</p><div class="chart"><canvas id="trend"></canvas></div></div>
 <div class="card"><h2>Return on ad spend by channel</h2><p class="muted">Google Search has the strongest historical ROAS in this synthetic dataset.</p><div class="chart"><canvas id="roas"></canvas></div></div>
 </section>
 <section class="two">
@@ -49,8 +49,8 @@ main{max-width:1180px;margin:24px auto;padding:0 18px 44px}.note{background:#fff
 </main>
 <script>
 if(window.Chart){
-const labels=['Jan 23','Apr 23','Jul 23','Oct 23','Jan 24','Apr 24','Jul 24','Oct 24','Jan 25','Apr 25','Jul 25','Oct 25'];
-new Chart(document.getElementById('trend'),{type:'line',data:{labels,datasets:[{label:'Spend ($000)',data:[250,265,260,282,275,288,270,295,280,289,267,310],borderColor:'#2563eb',backgroundColor:'#2563eb22',tension:.3,yAxisID:'y',fill:false},{label:'Revenue ($000)',data:[540,560,570,590,575,620,600,640,615,635,610,675],borderColor:'#0f9e8a',backgroundColor:'#0f9e8a22',tension:.3,yAxisID:'y',fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{ticks:{callback:v=>'$'+v+'k'}}}}});
+const labels=["Jan 23","Feb 23","Mar 23","Apr 23","May 23","Jun 23","Jul 23","Aug 23","Sep 23","Oct 23","Nov 23","Dec 23","Jan 24","Feb 24","Mar 24","Apr 24","May 24","Jun 24","Jul 24","Aug 24","Sep 24","Oct 24","Nov 24","Dec 24","Jan 25","Feb 25","Mar 25","Apr 25","May 25","Jun 25","Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25"],spendData=[309,262,259,261,261,261,263,304,263,263,263,264,309,263,257,264,268,268,264,305,264,274,270,265,310,273,275,265,278,270,270,308,271,277,270,274],revenueData=[693,546,580,560,613,563,563,727,508,484,494,495,775,601,619,621,656,629,554,680,631,567,575,522,767,678,665,668,699,616,578,739,597,557,580,599];
+new Chart(document.getElementById('trend'),{type:'line',data:{labels,datasets:[{label:'Spend ($000)',data:spendData,borderColor:'#2563eb',backgroundColor:'#2563eb22',tension:.3,yAxisID:'y',fill:false},{label:'Revenue ($000)',data:revenueData,borderColor:'#0f9e8a',backgroundColor:'#0f9e8a22',tension:.3,yAxisID:'y',fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{ticks:{callback:v=>'$'+v+'k'}}}}});
 new Chart(document.getElementById('roas'),{type:'bar',data:{labels:['Google Search','Meta Ads','Paid Social Video','Local Display'],datasets:[{label:'ROAS',data:[3.25,1.85,1.20,.88],backgroundColor:['#2563eb','#6090db','#8ca9d5','#f0ae55'],borderRadius:5}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{callback:v=>v+'×'}}}}});
 new Chart(document.getElementById('scenario'),{type:'bar',data:{labels:['Baseline','Conservative test','Optimized'],datasets:[{label:'Monthly contribution',data:[35347,42910,50472],backgroundColor:['#94a3b8','#4e91e8','#0f9e8a'],borderRadius:5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>'$'+Math.round(v/1000)+'k'}}}}});
 }
