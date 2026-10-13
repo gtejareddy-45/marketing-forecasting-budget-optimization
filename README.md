@@ -3,9 +3,7 @@
 An end-to-end marketing analytics portfolio case study using synthetic dental-services marketing data. The project explores funnel performance, channel efficiency, forecast validation, and budget allocation scenarios.
 
 ## Interactive dashboard
-Open the [dashboard preview](./index.html). After enabling GitHub Pages, it can be viewed as a public website at:
-
-`https://gtejareddy-45.github.io/marketing-forecasting-budget-optimization/`
+Once GitHub Pages is enabled, open the [live dashboard](https://gtejareddy-45.github.io/marketing-forecasting-budget-optimization/). The [HTML source](./index.html) is also available in this repository.
 
 The charts use Chart.js from a CDN, so an internet connection is required for the chart visuals.
 
