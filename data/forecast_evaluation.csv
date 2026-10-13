@@ -1,0 +1,3 @@
+metric,seasonal_naive_MAE,seasonal_naive_RMSE,seasonal_naive_WAPE_pct,ridge_MAE,ridge_RMSE,ridge_WAPE_pct,selected_model
+Leads,265.0,269.1,7.06,247.74,363.87,6.6,"Ridge (provisional; MAE/WAPE better, RMSE worse)"
+Appointments,70.5,80.88,5.48,114.45,136.72,8.9,Seasonal naive
