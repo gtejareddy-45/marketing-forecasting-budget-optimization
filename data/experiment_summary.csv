@@ -1,0 +1,3 @@
+experiment_group,records,markets,total_spend,total_appointments,avg_spend,avg_appointments,appointments_per_1000_spend
+Control,48,4,322023.65,9617,6708.826041666667,200.3541666666667,29.86426618044979
+Treatment,48,4,337368.5,15605,7028.510416666667,325.1041666666667,46.25505937869125
