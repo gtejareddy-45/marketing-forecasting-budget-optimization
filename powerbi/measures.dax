@@ -1,0 +1,21 @@
+// Marketing Forecasting & Budget Optimization — DAX starter measures
+// Main fact table expected name: Raw Marketing Data
+
+Total Spend = SUM('Raw Marketing Data'[spend])
+Total Impressions = SUM('Raw Marketing Data'[impressions])
+Total Clicks = SUM('Raw Marketing Data'[clicks])
+Total Leads = SUM('Raw Marketing Data'[leads])
+Total Appointments = SUM('Raw Marketing Data'[appointments])
+Completed Visits = SUM('Raw Marketing Data'[completed_visits])
+Attributed Revenue = SUM('Raw Marketing Data'[attributed_revenue])
+Estimated Variable Cost = SUM('Raw Marketing Data'[estimated_variable_cost])
+Contribution After Media = [Attributed Revenue] - [Estimated Variable Cost] - [Total Spend]
+Click Through Rate = DIVIDE([Total Clicks], [Total Impressions])
+Cost Per Click = DIVIDE([Total Spend], [Total Clicks])
+Cost Per Lead = DIVIDE([Total Spend], [Total Leads])
+Lead To Appointment Rate = DIVIDE([Total Appointments], [Total Leads])
+Visit Show Rate = DIVIDE([Completed Visits], [Total Appointments])
+Cost Per Appointment = DIVIDE([Total Spend], [Total Appointments])
+Cost Per Completed Visit = DIVIDE([Total Spend], [Completed Visits])
+Return On Ad Spend = DIVIDE([Attributed Revenue], [Total Spend])
+Contribution Margin % = DIVIDE([Contribution After Media], [Attributed Revenue])
